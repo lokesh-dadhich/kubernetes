@@ -1,0 +1,30 @@
+apiVersion:  app/v1
+kind: replicaset
+
+metadata: 
+   name: myfirstpod
+   labels:
+     appname:voatingapp
+spec:
+  replicas:5
+  selector:
+    matchlabels:
+      - key: app
+        operator: In
+        values:
+          - myapp1
+          - myapp2
+      - key: type
+        operator: NotIn
+        values:
+          - backend
+  template:
+    metadata:
+      name:firstpod
+      labels: 
+        app: myapp
+        type: frontend
+    spec:
+      containers:
+         -name: containername
+          image: coolgourav147//nginx-custom

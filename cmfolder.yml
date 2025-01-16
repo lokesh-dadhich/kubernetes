@@ -1,0 +1,17 @@
+apiVersion: v1 
+data:
+  application.properties: |
+    # this is application.properties
+
+    database_ip="192.168.0.4"
+    database_password="testpassword" 
+    database_username=" testusername"
+  superadmin.properties: |
+    # this is super admin.properties
+
+    superadmin_username="admin"
+    superadmin_password=" superadminpassword"
+kind: ConfigMap 
+metadata:
+  creationTimestamp: null
+  name: cm1

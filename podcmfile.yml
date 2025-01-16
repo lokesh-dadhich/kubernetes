@@ -1,0 +1,11 @@
+kind: Pod 
+metadata:
+  name: firstpod
+spec:
+  containers:
+    - image: coolgourav147/nginx-custom
+      name: firstcontainer
+      imagePullPolicy: Never
+      envFrom:
+        - configMapRef:
+          name: envcm

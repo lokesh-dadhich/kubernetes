@@ -1,0 +1,23 @@
+apiVersion:  v1
+kind: replicacontrol
+
+metadata: 
+   name: myfirstpod
+   labels:
+     appname:voatingapp
+spec:
+  replicas:5
+  selector:
+      app: myapp
+      type: frontend
+  template:
+    metadata:
+      name:firstpod
+      labels: 
+        app: myapp
+        type: frontend
+    spec:
+      containers:
+         -name: containername
+          image: coolgourav147//nginx-custom
+     

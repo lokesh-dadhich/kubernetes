@@ -1,0 +1,28 @@
+apiVersion:  app/v1
+kind: deployment
+
+metadata: 
+   name: myfirstdeploy
+   labels:
+      name: firstdeploy
+spec:
+  replicas: 5
+  minreadyseconds: 30
+  strategy: 
+    rollingupdate: 
+      maxsurge: 0
+      maxunavailable: 1
+    type: rollingupdate
+  selector:
+      app: myapp
+      type: frontend
+  template:
+    metadata:
+      name: firstpod
+      labels: 
+        app: myapp
+        type: frontend
+    spec:
+      containers:
+         -name: containername
+          image: coolgourav147//nginx-custom
